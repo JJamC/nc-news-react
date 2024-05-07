@@ -31,7 +31,26 @@ li {
   list-style-type: none;
 }
 
+.comments-list {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-evenly;
+}
 
+.comment-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  outline: 1px solid blue;
+}
+
+.comment-card-info {
+  margin: 10px;
+}
+
+.comments-header{
+ text-align: center;
+}
 
 
 #root {
