@@ -8,13 +8,14 @@ import Articles from "./components/Articles"
 import Users from "./components/Users"
 
 function App() {
+   const [isLoading, setIsLoading] = useState(true);
   return (
     <div className='App'>
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path="/topics" element={<Topics />} />
-        <Route path="/articles" element={<Articles />} />
+        <Route path="/articles" element={<Articles isLoading={isLoading} setIsLoading={setIsLoading} />} />
         <Route path="/users" element={<Users />} />
       </Routes>
       </div>
