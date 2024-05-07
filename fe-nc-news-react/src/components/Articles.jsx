@@ -4,7 +4,7 @@ import ArticleCard from "./ArticleCard";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
-export default function Articles({ isLoading, setIsLoading }) {
+export default function Articles({ isLoading, setIsLoading,}) {
   const [articles, setArticles] = useState([])
   // const [isError, setIsError] = useState(false);
 
@@ -16,7 +16,7 @@ export default function Articles({ isLoading, setIsLoading }) {
           setIsLoading(false)
         })
     }).catch((err) => {
-      setIsLoading(false); // feel as if this useEffect is unnecessary
+      setIsLoading(false); // feel as if this useEffect is unnecessary, add err handling
     });
   },
     [])
