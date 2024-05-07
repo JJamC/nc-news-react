@@ -3,24 +3,28 @@ import { useParams } from 'react-router-dom';
 import { fetchArticlebyId as fetchArticlesId } from '../api';
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
+import Comments from './Comments';
 
-export default function FullArticle({ isLoading, setIsLoading}) {
+export default function FullArticle() {
     const [article, setArticle] = useState({})
+    const [isArticleLoading, setIsArticleLoading] = useState(true);
 
     const { article_id } = useParams()
 
+
     useEffect(() => { 
-        setIsLoading(true);
-        fetchArticlesId(article_id).then((res) => {
-            setArticle(res.data.article)
+        setIsArticleLoading(true);
+        fetchArticlesId(article_id).then((articleData) => {
+            setArticle(articleData.data.article)
         })
             .then(() => {
-                setIsLoading(false)
+                setIsArticleLoading(false)
             }).catch((err) => {
-                setIsLoading(false)
+                setIsArticleLoading(false)
             });
     }, [article_id])
-    return isLoading ? (
+
+    return isArticleLoading ? (
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <CircularProgress />
       </Box>
@@ -30,8 +34,8 @@ export default function FullArticle({ isLoading, setIsLoading}) {
         <ul>
           <li>
             <img src={article.article_img_url} alt="article image" />
-            <p>Date Written: {article.created_at}</p>
-            <p>Author: {article.author}</p>
+            <p>{article.created_at}</p>
+            <p>Posted by {article.author}</p>
             <p>Topic: {article.topic}</p>
             <p>{article.body}</p>
           </li>
@@ -39,7 +43,8 @@ export default function FullArticle({ isLoading, setIsLoading}) {
             <p>Comments: {article.comment_count}</p>
             <p>Upvotes: {article.votes}</p>
           </li>
-        </ul>
+                </ul>
+                <Comments article_id={article_id} />
       </div>
     );
 }

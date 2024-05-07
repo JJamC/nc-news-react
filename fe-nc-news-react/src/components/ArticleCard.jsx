@@ -17,6 +17,7 @@ export default function ArticleCard({ article, }) {
           <p>Author: {article.author}</p>
           <p>{article.created_at}</p>
           <p>{article.votes}</p>
+          <p>{article.comment_count}</p>
           <Link to={articleLink}>
             Read Full Article
           </Link>
