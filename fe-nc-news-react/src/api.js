@@ -21,5 +21,13 @@ function patchArticleVote(newVote, id) {
         })
 }
 
+function postNewComment(id, newComment) {
+    console.log(id, newComment);
+    return axios.post(
+      `https://j-nc-news.onrender.com/api/articles/${id}/comments`, newComment
+    ).catch()
+}
+    
 
-export { fetchArticles, fetchArticlebyId, fetchCommentsbyArticleId, patchArticleVote }
+
+export { fetchArticles, fetchArticlebyId, fetchCommentsbyArticleId, patchArticleVote, postNewComment }
