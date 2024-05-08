@@ -51,15 +51,16 @@ li {
   justify-content: space-evenly;
 }
 
-.comment-card {
+/* .comment-card {
   width: 100%;
   display: flex;
   flex-direction: column;
   outline: 1px solid blue;
-}
+} */
 
-.comment-card-info {
+.comment-card-author{
   margin: 10px;
+  font-weight: bold;
 }
 
 .comments-header{

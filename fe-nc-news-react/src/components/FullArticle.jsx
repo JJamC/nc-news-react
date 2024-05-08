@@ -10,10 +10,9 @@ export default function FullArticle() {
   
   const [isArticleLoading, setIsArticleLoading] = useState(true);
   const [voteChange, setVoteChange] = useState(0)
-    const [isError, setIsError] = useState(false);
+  const [isError, setIsError] = useState(false);
   const { article_id } = useParams()
   
-  // set API error message
 
 
     useEffect(() => { 
