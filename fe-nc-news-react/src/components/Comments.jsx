@@ -18,7 +18,7 @@ export default function Comments({ article_id }) {
             setComments(comments.data.comments);
           })
           .catch()
-    }, [article_id])
+    }, [article_id, commentPosted])
     
   function handleCommentPost(e) {
     e.preventDefault();
@@ -27,6 +27,7 @@ export default function Comments({ article_id }) {
   }
 
   useEffect(() => {
+    setCommentPosted(false)
     setIsError(false)
       setPendingComment(true)
     postNewComment( article_id, newComment)
