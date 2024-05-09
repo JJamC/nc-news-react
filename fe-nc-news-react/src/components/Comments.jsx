@@ -28,6 +28,7 @@ export default function Comments({ article_id }) {
 
           })
           .catch()
+
   }, [refresh])
     
   function handleCommentPost(e) {
@@ -39,7 +40,9 @@ export default function Comments({ article_id }) {
   console.log(isError);
 
   useEffect(() => {
-    console.log('hi');
+
+    setCommentPosted(false)
+
     setIsError(false)
       setPendingComment(true)
     postNewComment( article_id, newComment)
