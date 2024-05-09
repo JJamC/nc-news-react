@@ -1,8 +1,12 @@
 import axios from 'axios'
 
-function fetchArticles() {
-    return axios.get('https://j-nc-news.onrender.com/api/articles')
-        .catch((err) => { console.log(err) })
+function fetchArticles(topic) {
+       let axiosUrl = `https://j-nc-news.onrender.com/api/articles`
+    if (topic !== "all") {
+         axiosUrl += `?topic=${topic}`;
+    }
+    return axios.get(axiosUrl)
+    .catch()
 }
 
 function fetchArticlebyId(id) {
@@ -31,7 +35,12 @@ function deleteComment(id) {
     return axios.delete(`https://j-nc-news.onrender.com/api/comments/${id}`)
     .catch()
 }
-    
+
+function fetchTopics() {
+    return axios.get(`https://j-nc-news.onrender.com/api/topics`)
+    .catch()
+}
 
 
-export { fetchArticles, fetchArticlebyId, fetchCommentsbyArticleId, patchArticleVote, postNewComment, deleteComment }
+
+export { fetchArticles, fetchArticlebyId, fetchCommentsbyArticleId, patchArticleVote, postNewComment, deleteComment, fetchTopics,  }

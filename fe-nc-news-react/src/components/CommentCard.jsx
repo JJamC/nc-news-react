@@ -25,12 +25,6 @@ export default function CommentCard({ comment, setRefresh }) {
   }
 
   const { loggedUser } = useContext(UserAccountContext);
-  // if statement for loggedUser
-  // optimistic rendering of deletion
-  // delete success message
-  // re-render of the page
-
-
 
     return (
       <ThemeProvider
