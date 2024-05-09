@@ -22,12 +22,16 @@ function patchArticleVote(newVote, id) {
 }
 
 function postNewComment(id, newComment) {
-    console.log(id, newComment);
     return axios.post(
       `https://j-nc-news.onrender.com/api/articles/${id}/comments`, newComment
     ).catch()
 }
+
+function deleteComment(id) {
+    return axios.delete(`https://j-nc-news.onrender.com/api/comments/${id}`)
+    .catch()
+}
     
 
 
-export { fetchArticles, fetchArticlebyId, fetchCommentsbyArticleId, patchArticleVote, postNewComment }
+export { fetchArticles, fetchArticlebyId, fetchCommentsbyArticleId, patchArticleVote, postNewComment, deleteComment }
