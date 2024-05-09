@@ -1,12 +1,36 @@
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import * as React from "react";
 import { Box, ThemeProvider } from "@mui/material";
 import { color } from "@mui/system";
+import { UserAccountContext } from "../contexts/UserAccount";
+import { deleteComment } from "../api";
 
-export default function CommentCard({ comment }) {
+export default function CommentCard({ comment, setRefresh }) {
+
+  const [isValidUser, setIsValidUser] = useState(true)
+  const [commentIdDeleted, setCommentIdDeleted] = useState("");
 
     const originalDate = comment.created_at.split("T")
-    const formattedDate = originalDate[0]
+  const formattedDate = originalDate[0]
+   
+  function handleDelete(e) {
+    e.preventDefault();
+      console.log(commentIdDeleted, comment.comment_id);
+    if (loggedUser === comment.author) {
+      deleteComment(e.target.value)
+        .then(() => {
+        setRefresh(Math.random)
+      })
+      }
+  }
+
+  const { loggedUser } = useContext(UserAccountContext);
+  // if statement for loggedUser
+  // optimistic rendering of deletion
+  // delete success message
+  // re-render of the page
+
+
 
     return (
       <ThemeProvider
@@ -26,7 +50,7 @@ export default function CommentCard({ comment }) {
             borderRadius: 20,
             margin: 1,
             border: 1,
-            borderColor: '808080',
+            borderColor: "808080",
             bgcolor: "primary.main",
             "&:hover": {
               bgcolor: "primary.dark",
@@ -38,8 +62,20 @@ export default function CommentCard({ comment }) {
             <p className="comment-card-info">{formattedDate}</p>
             <p className="comment-card-info">Votes: {comment.votes}</p>
             <p className="comment-card-info">{comment.body}</p>
+            {commentIdDeleted === comment.comment_id ? (
+              <button>Deleted</button>
+            ) : (
+              <button
+                value={comment.comment_id}
+                onClick={(e) => {
+                  handleDelete(e);
+                }}
+              >
+                Delete
+              </button>
+            )}
           </li>
         </Box>
       </ThemeProvider>
     );
-}
+  }

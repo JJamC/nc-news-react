@@ -7,11 +7,13 @@ import Topics from "./components/Topics"
 import Articles from "./components/Articles"
 import Users from "./components/Users"
 import FullArticle from './components/FullArticle'
+import { UserAccountProvider } from './contexts/UserAccount'
 
 function App() {
 
   return (
     <div className="App">
+      <UserAccountProvider>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -30,6 +32,7 @@ function App() {
         ></Route>
         <Route path="/users" element={<Users />} />
       </Routes>
+      </UserAccountProvider>
     </div>
   );
 }
