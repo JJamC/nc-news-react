@@ -8,9 +8,6 @@ export default function Header() {
           <Link className="nav-bar-element" to="/">
             Home
           </Link>
-          <Link className="nav-bar-element" to="/topics">
-            Topics
-          </Link>
           <Link className="nav-bar-element" to="/articles">
             Articles
           </Link>

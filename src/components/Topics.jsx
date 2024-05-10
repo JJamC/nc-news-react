@@ -18,7 +18,7 @@ export default function Topics() {
         <ul>
             {topics.map((topic) => {
                 return (<li >
-                    <Link className="topic-links" to="/topics/articles">
+                    <Link className="topic-links" to="/articles?topics=coding">
                         <p>{topic.slug}</p>
                     </Link>
                 </li>)
