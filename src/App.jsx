@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header'
 import Home from './components/Home'
-
+import ErrorPage from './components/ErrorPage'
 import Articles from "./components/Articles"
 import Users from "./components/Users"
 import FullArticle from './components/FullArticle'
@@ -20,6 +20,7 @@ function App() {
           <Route path="/articles" element={<Articles />} />
           <Route path="articles/:article_id" element={<FullArticle />}></Route>
           <Route path="/users" element={<Users />} />
+          <Route path="*" element={<ErrorPage/>} />
         </Routes>
       </UserAccountProvider>
     </div>

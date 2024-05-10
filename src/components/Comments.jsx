@@ -62,6 +62,7 @@ export default function Comments({ article_id }) {
             type="text"
             id="comment"
             name="comment"
+            required
             value={newInput}
             onChange={(e) => {
               setNewInput(e.target.value);
