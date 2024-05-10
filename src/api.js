@@ -1,7 +1,7 @@
 import axios from "axios";
 
 function fetchArticles(
-  topic = 'all',
+  topic,
   order,
   sortBy,
   limit = 100
@@ -39,6 +39,9 @@ function patchArticleVote(newVote, id) {
 }
 
 function postNewComment(id, newComment) {
+  if (!id || !newComment) {
+    
+  }
   return axios.post(
     `https://j-nc-news.onrender.com/api/articles/${id}/comments`,
     newComment

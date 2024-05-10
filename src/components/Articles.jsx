@@ -1,13 +1,15 @@
 import { fetchArticles, fetchTopics } from "../api";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
+import ErrorPage from "./ErrorPage";
 
-export default function Articles({ isLoading, setIsLoading,}) {
+export default function Articles() {
   const [articles, setArticles] = useState([]);
   const [articleTopic, setArticleTopic] = useState("");
+  const [isError, setIsError] = useState(null)
   const [order, setOrder] = useState("DESC");
   const [sortBy, setSortBy] = useState("created_at");
   const [isAllArticlesLoading, setIsAllArticlesLoading] = useState(true);
@@ -37,12 +39,13 @@ export default function Articles({ isLoading, setIsLoading,}) {
         });
     fetchArticles(articleTopic, order, sortBy)
       .then((articles) => {
-        setArticles(articles).then(() => {
+
+        setArticles(articles)
           setIsAllArticlesLoading(false);
-        });
       })
-      .catch((err) => {
+      .catch(() => {
         setIsAllArticlesLoading(false);
+        setIsError(true)
       });
   }, [searchParams, articleTopic, order, sortBy]);
 
@@ -51,6 +54,10 @@ export default function Articles({ isLoading, setIsLoading,}) {
     const capitalString =
       copyString.charAt(0).toUpperCase() + copyString.slice(1);
     return capitalString;
+  }
+
+  if (isError) {
+    return <ErrorPage></ErrorPage>
   }
 
   return isAllArticlesLoading ? (

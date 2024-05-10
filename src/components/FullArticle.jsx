@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchArticlebyId as fetchArticlesId, patchArticleVote } from '../api';
+import ErrorPage from './ErrorPage';
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import Comments from './Comments';
@@ -35,6 +36,10 @@ export default function FullArticle() {
     patchArticleVote(vote, article_id)
     setVoteChange(vote)
   }
+
+    if (isError) {
+      return <ErrorPage></ErrorPage>;
+    }
 
 
     return isArticleLoading ? (
