@@ -56,6 +56,10 @@ function fetchTopics() {
   return axios.get(`https://j-nc-news.onrender.com/api/topics`);
 }
 
+function fetchUser() {
+  return axios.get(`https://j-nc-news.onrender.com/api/users/cooljmessy`);
+}
+
 export {
   fetchArticles,
   fetchArticlebyId,
@@ -64,4 +68,5 @@ export {
   postNewComment,
   deleteComment,
   fetchTopics,
+  fetchUser
 };

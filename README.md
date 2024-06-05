@@ -1,8 +1,9 @@
-# React + Vite
+ https://tourmaline-cobbler-c48629.netlify.app -link to deployed site
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ Love this app it is great - desc of site
 
-Currently, two official plugins are available:
+ https://github.com/JJamC/nc-news-project.git - be repo link
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ v21.6.2 - node version
+
+ How to run programme

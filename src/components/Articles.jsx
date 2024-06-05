@@ -5,6 +5,7 @@ import ArticleCard from "./ArticleCard";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import ErrorPage from "./ErrorPage";
+import CardDesign from "./CardDesign";
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
@@ -61,11 +62,11 @@ export default function Articles() {
   }
 
   return isAllArticlesLoading ? (
-    <Box sx={{ display: "flex", justifyContent: "center" }}>
+    <Box sx={{ display: "flex", justifyContent: "center", margin: "20px" }}>
       <CircularProgress />
     </Box>
   ) : (
-    <div className="articles">
+    <div>
       {articleTopic ? (
         <h2 className="articles-header">
           {captialiseWord(articleTopic)} Articles
@@ -110,9 +111,13 @@ export default function Articles() {
         <option value="ASC">ASC</option>
         <option value="DESC">DESC</option>
       </select>
-      <ul className="article-list">
+      <ul className="articles-list">
         {articles.map((article) => {
-          return <ArticleCard key={article.article_id} article={article} />;
+          return (
+            <CardDesign key={article.article_id}>
+              <ArticleCard article={article} />
+            </CardDesign>
+          );
         })}
       </ul>
     </div>

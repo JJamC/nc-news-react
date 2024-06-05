@@ -45,34 +45,32 @@ export default function Comments({ article_id }) {
 
     return (
       <div className="comments">
-        <h3 className="comments-header">
+        <h3>
           {isError ? "Error invalid comment" : "Comments"}
         </h3>
-        <label>
-        Enter your comment here...
-        </label>
-        <br />
-        <form
-          className="post-comment-form"
-          onSubmit={(e) => {
-            handleCommentPost(e);
-          }}
-        >
-          <input
-            type="text"
-            id="comment"
-            name="comment"
-            required
-            value={newInput}
-            onChange={(e) => {
-              setNewInput(e.target.value);
-            }}
-          />
+        <label>Enter your comment here...</label>
           <br />
-          <button disabled={pendingComment}>
-            {pendingComment ? "Submitting" : "Submit"}
-          </button>
-        </form>
+          <form
+            onSubmit={(e) => {
+              handleCommentPost(e);
+            }}
+          >
+            <textarea
+              placeholder="Enter comment here..."
+              onChange={(e) => {
+                setNewInput(e.target.value);
+              }}
+              id="comment"
+              disabled={pendingComment}
+              value={newInput}
+              rows="6"
+              type="text"
+            />
+            <br />
+            <button className="comment-form-button" disabled={pendingComment}>
+              {pendingComment ? "Submitting" : "Submit"}
+            </button>
+          </form>
         <ul className="comments-list">
           {commentsAreLoading ? (
             <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -80,12 +78,7 @@ export default function Comments({ article_id }) {
             </Box>
           ) : (
             comments.map((comment) => {
-              return (
-                <CommentCard
-                  key={comment.comment_id}
-                  comment={comment}
-                />
-              );
+              return <CommentCard key={comment.comment_id} comment={comment} />;
             })
           )}
         </ul>

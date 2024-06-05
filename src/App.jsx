@@ -12,7 +12,7 @@ import { UserAccountProvider } from './contexts/UserAccount'
 function App() {
 
   return (
-    <div className="App">
+    <div className="app">
       <UserAccountProvider>
         <Header />
         <Routes>
