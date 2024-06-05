@@ -11,9 +11,8 @@ export default function Users() {
 
     useEffect(() => {
         fetchUser().then((userData) => {
-
             setUser(userData.data.user)
-              console.log(user);
+            setLoading(false)
         })
     }, [])
 
