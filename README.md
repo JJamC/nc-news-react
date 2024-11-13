@@ -6,6 +6,6 @@ Users are able to browse articles, sort them by a number of parameters, upvote/d
 ## Articles
 Users can view detailed information about each article, including the content, author, publication date and number of upvotes/downvotes.
 
-Here is a link to the deployed sight: https://tourmaline-cobbler-c48629.netlify.app
+Here is a link to the deployed site: https://tourmaline-cobbler-c48629.netlify.app
 
 Here is the link to the GitHub repo: https://github.com/JJamC/nc-news-project.git
