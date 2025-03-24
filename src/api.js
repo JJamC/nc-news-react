@@ -11,7 +11,7 @@ function fetchArticles(
     }
   return axios
     .get(
-      `https://j-nc-news.onrender.com/api/articles?topic=${
+      `https://nc-news-project-rbvi.onrender.com/api/articles?topic=${
         topic
         }&&sort_by=${sortBy}&&order=${order}&&limit=${limit}`
     )
@@ -21,19 +21,19 @@ function fetchArticles(
 }
 
 function fetchArticlebyId(id) {
-  return axios.get(`https://j-nc-news.onrender.com/api/articles/${id}`);
+  return axios.get(`https://nc-news-project-rbvi.onrender.com/api/articles/${id}`);
 }
 
 function fetchCommentsbyArticleId(id) {
   return axios.get(
-    `https://j-nc-news.onrender.com/api/articles/${id}/comments`
+    `https://nc-news-project-rbvi.onrender.com/api/articles/${id}/comments`
   );
 }
 
 function patchArticleVote(newVote, id) {
   const voteObj = { inc_votes: newVote };
   return axios.patch(
-    `https://j-nc-news.onrender.com/api/articles/${id}`,
+    `https://nc-news-project-rbvi.onrender.com/api/articles/${id}`,
     voteObj
   );
 }
@@ -43,21 +43,21 @@ function postNewComment(id, newComment) {
     
   }
   return axios.post(
-    `https://j-nc-news.onrender.com/api/articles/${id}/comments`,
+    `https://nc-news-project-rbvi.onrender.com/api/articles/${id}/comments`,
     newComment
   );
 }
 
 function deleteComment(id) {
-  return axios.delete(`https://j-nc-news.onrender.com/api/comments/${id}`);
+  return axios.delete(`https://nc-news-project-rbvi.onrender.com/api/comments/${id}`);
 }
 
 function fetchTopics() {
-  return axios.get(`https://j-nc-news.onrender.com/api/topics`);
+  return axios.get(`https://nc-news-project-rbvi.onrender.com/api/topics`);
 }
 
 function fetchUser() {
-  return axios.get(`https://j-nc-news.onrender.com/api/users/cooljmessy`);
+  return axios.get(`https://nc-news-project-rbvi.onrender.com/api/users/cooljmessy`);
 }
 
 export {
